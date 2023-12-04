@@ -1,8 +1,8 @@
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import "./App.css";
-import { HomePage } from "./components/Home.page";
-import { RQSuperHeroesPage } from "./components/RQSuperHeroes.page";
-import { SuperHeroesPage } from "./components/Superheroes.page";
+import { Home } from "./components/Home";
+import { RQSuperHeroes } from "./components/RQSuperHeroes";
+import { SuperHeroes } from "./components/SuperHeroes";
 
 function App() {
   return (
@@ -21,18 +21,14 @@ function App() {
             </li>
           </ul>
         </nav>
-        <Switch>
-          <Route path="/super-heroes">
-            <SuperHeroesPage />
-          </Route>
-          <Route path="/rq-super-heroes">
-            <RQSuperHeroesPage />
-          </Route>
-          <Route path="/">
-            <HomePage />
-          </Route>
-        </Switch>
+        <Routes>
+          <Route path="/super-heroes" element={<SuperHeroes />} />
+          <Route path="/rq-super-heroes" element={<RQSuperHeroes />} />
+          <Route path="/" element={<Home />} />
+        </Routes>
       </div>
     </Router>
   );
 }
+
+export default App;
